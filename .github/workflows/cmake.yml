@@ -21,12 +21,11 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-11          
-#          - macos-latest          
 
     runs-on: ${{matrix.os}}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: "Windows: Configure environment"
       if: runner.os == 'Windows'
@@ -53,7 +52,7 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}}
       
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: binaries
         path: ${{github.workspace}}/build/*.xpl
@@ -64,14 +63,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: binaries
           path: XP12WindowApiSample/64
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: XP12WindowApiSample_plugin
           path: |
