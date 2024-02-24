@@ -34,7 +34,7 @@ Create a CMake project with GitHub Actions
 
     ```
     cmake --build .\build
-    cp .\build\win.xpl .\XP12WindowApiSample\64\
+    xcopy .\build\win.xpl .\XP12WindowApiSample\64\
     ```
 
 ### On Ubuntu:
